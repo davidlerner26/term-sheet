@@ -1,0 +1,27 @@
+<form [formGroup]="form" (submit)="login()">
+  <app-form-field-input
+    label="Email"
+    [form]="form"
+    controlName="email"
+    name="email"
+    placeholder="Enter Email"
+  />
+
+  <app-form-field-input
+    label="Password"
+    type="password"
+    [form]="form"
+    controlName="password"
+    name="password"
+    placeholder="Enter Password"
+  />
+
+  <button
+    color="primary"
+    type="submit"
+    mat-raised-button
+    [disabled]="form.invalid"
+  >
+    Submit
+  </button>
+</form>
