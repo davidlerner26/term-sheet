@@ -1,15 +1,20 @@
 <form>
-  <mat-form-field>
-    <mat-label>Deal</mat-label>
-    <input
-      matInput
-      placeholder="Search deals by name or price, please type at least 3 characters"
-      [(ngModel)]="search"
-      (ngModelChange)="onSearchChange($event)"
-      name="search"
-    />
-    <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Deal</mat-label>
+      <input
+        matInput
+        placeholder="Search deals by name or price, please type at least 3 characters"
+        [(ngModel)]="search"
+        (ngModelChange)="onSearchChange($event)"
+        name="search"
+      />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+  <button class="primary" mat-raised-button (click)="addDeal()">
+    Add a new deal
+  </button>
 </form>
 
 <table mat-table [dataSource]="filteredDataSource" class="mat-elevation-z8">

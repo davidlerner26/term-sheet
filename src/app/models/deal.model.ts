@@ -1,5 +1,5 @@
 export default interface IDeal {
-  id: number;
+  id?: number;
   dealName: string;
   price: number;
   address: string;

@@ -1,0 +1,58 @@
+<form [formGroup]="form" (submit)="submit()">
+  <h2 mat-dialog-title>Add a new deal</h2>
+  <mat-dialog-content>
+    <app-form-field-input
+      label="Deal Name"
+      [form]="form"
+      controlName="dealName"
+      name="dealName"
+      placeholder="Enter a deal name"
+    />
+
+    <app-form-field-input
+      type="number"
+      label="Purchase Price ($)"
+      [form]="form"
+      controlName="price"
+      name="price"
+      placeholder="Enter a purchase price"
+    />
+
+    <app-form-field-input
+      label="Address"
+      [form]="form"
+      controlName="address"
+      name="address"
+      placeholder="Enter an address"
+    />
+
+    <app-form-field-input
+      type="number"
+      label="NOI (Net Operating Income) ($)"
+      [form]="form"
+      controlName="noi"
+      name="noi"
+      placeholder="Enter a NOI"
+    />
+
+    <app-form-field-input
+      type="number"
+      label="Cap Rate = NOI / Purchase Price (%)"
+      [form]="form"
+      controlName="capRate"
+      name="capRate"
+    />
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button
+      disabled=""
+      mat-raised-button
+      mat-dialog-close
+      cdkFocusInitial
+      type="submit"
+    >
+      Submit
+    </button>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+  </mat-dialog-actions>
+</form>

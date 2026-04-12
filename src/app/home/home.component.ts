@@ -1,12 +1,15 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import IDeal from '../models/deal.model';
 import { DealService } from '../services/deal.service';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { AddDealDialog } from '../add-deal-dialog/add-deal-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +21,8 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
+    MatButton,
+    MatButtonModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -34,9 +39,16 @@ export class HomeComponent implements OnInit {
   filteredDataSource: IDeal[] = [];
   search = '';
 
-  constructor(private dealsService: DealService) {}
+  constructor(
+    private dealsService: DealService,
+    public dialog: MatDialog,
+  ) {}
 
   async ngOnInit() {
+    await this.getDeals();
+  }
+
+  private async getDeals() {
     try {
       const deals = await this.dealsService.getDeals();
       this.initDataSource = deals;
@@ -61,5 +73,18 @@ export class HomeComponent implements OnInit {
 
   private cleanData(text: string) {
     return text.toLowerCase().replaceAll(/[^A-Za-z0-9\s]/g, '');
+  }
+
+  async addDeal() {
+    const dialogRef = this.dialog.open(AddDealDialog);
+    dialogRef
+      .afterClosed()
+      .subscribe((result: boolean) => this.handleResponse(result));
+  }
+
+  private async handleResponse(result: boolean) {
+    if (result) {
+      await this.getDeals();
+    }
   }
 }

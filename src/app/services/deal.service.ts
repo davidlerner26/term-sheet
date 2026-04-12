@@ -27,14 +27,16 @@ export class DealService {
     return docs;
   }
 
-  async addDeal() {
-    await setDoc(doc(this.firestore, this.DEALS_COLLECTION, '1'), {
-      id: 1,
-      dealName: 'Deal Name',
-      price: '1.25',
-      address: 'Golf Channel DrOrlando, FL 32819, EUA',
-      noi: '125',
-      capRate: '1',
+  async addDeal(dealData: IDeal) {
+    const { dealName, price, address, noi, capRate } = dealData;
+    const id = Math.random().toString(36).slice(2, 10);
+    await setDoc(doc(this.firestore, this.DEALS_COLLECTION, id), {
+      id,
+      dealName,
+      price,
+      address,
+      noi,
+      capRate,
     });
   }
 }

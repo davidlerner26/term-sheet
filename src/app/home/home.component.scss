@@ -1,3 +1,9 @@
-mat-form-field {
-  min-width: 550px;
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  mat-form-field {
+    min-width: 550px;
+  }
 }
