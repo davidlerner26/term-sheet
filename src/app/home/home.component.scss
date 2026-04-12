@@ -1,9 +1,22 @@
 form {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  padding: 1rem;
 
   mat-form-field {
     min-width: 550px;
   }
+}
+
+.full-width {
+  padding: 0 1rem;
+}
+
+.m-t {
+  margin-top: 15px;
+}
+
+.no-data {
+  text-align: center;
+  padding: 1rem;
 }

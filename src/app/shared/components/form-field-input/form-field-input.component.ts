@@ -29,4 +29,6 @@ export class FormFieldInputComponent {
   @Input({ required: true }) label = '';
   @Input() type = 'text';
   @Input() placeholder = '';
+  @Input() suffix = '';
+  @Input() size: 'full-width' | 'half-width' | '' = '';
 }

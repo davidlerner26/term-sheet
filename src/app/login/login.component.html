@@ -5,6 +5,7 @@
     controlName="email"
     name="email"
     placeholder="Enter Email"
+    size="full-width"
   />
 
   <app-form-field-input
@@ -14,14 +15,17 @@
     controlName="password"
     name="password"
     placeholder="Enter Password"
+    size="full-width"
   />
 
-  <button
-    color="primary"
-    type="submit"
-    mat-raised-button
-    [disabled]="form.invalid"
-  >
-    Submit
-  </button>
+  <div class="button-row">
+    <button
+      class="bg-color"
+      type="submit"
+      mat-raised-button
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
+  </div>
 </form>

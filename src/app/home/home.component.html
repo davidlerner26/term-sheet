@@ -12,12 +12,16 @@
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
   </div>
-  <button class="primary" mat-raised-button (click)="addDeal()">
+  <button class="m-t bg-color" mat-raised-button (click)="addDeal()">
     Add a new deal
   </button>
 </form>
 
-<table mat-table [dataSource]="filteredDataSource" class="mat-elevation-z8">
+<table
+  mat-table
+  [dataSource]="filteredDataSource"
+  class="mat-elevation-z8 full-width"
+>
   <ng-container matColumnDef="dealName">
     <th mat-header-cell *matHeaderCellDef>Deal Name</th>
     <td mat-cell *matCellDef="let element">{{ element.dealName }}</td>
@@ -45,4 +49,7 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell no-data" colspan="5">No deals found</td>
+  </tr>
 </table>

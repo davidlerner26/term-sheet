@@ -2,6 +2,7 @@
   <h2 mat-dialog-title>Add a new deal</h2>
   <mat-dialog-content>
     <app-form-field-input
+      size="full-width"
       label="Deal Name"
       [form]="form"
       controlName="dealName"
@@ -10,6 +11,7 @@
     />
 
     <app-form-field-input
+      size="full-width"
       type="number"
       label="Purchase Price ($)"
       [form]="form"
@@ -19,6 +21,7 @@
     />
 
     <app-form-field-input
+      size="full-width"
       label="Address"
       [form]="form"
       controlName="address"
@@ -27,6 +30,7 @@
     />
 
     <app-form-field-input
+      size="full-width"
       type="number"
       label="NOI (Net Operating Income) ($)"
       [form]="form"
@@ -36,16 +40,19 @@
     />
 
     <app-form-field-input
+      size="full-width"
       type="number"
       label="Cap Rate = NOI / Purchase Price (%)"
       [form]="form"
       controlName="capRate"
       name="capRate"
+      suffix="percent"
     />
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button
-      disabled=""
+      color="primary"
+      [disabled]="form.invalid"
       mat-raised-button
       mat-dialog-close
       cdkFocusInitial
@@ -53,6 +60,6 @@
     >
       Submit
     </button>
-    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
   </mat-dialog-actions>
 </form>

@@ -1,9 +1,9 @@
-<nav>
-  NAVBAR
+<nav class="bg-color">
+  <h1>termsheep</h1>
   <button
     *ngIf="auth.authState$ | async"
-    class="primary"
-    matIconButton
+    color="primary"
+    mat-raised-button
     (click)="auth.logout()"
   >
     <mat-icon>logout</mat-icon>

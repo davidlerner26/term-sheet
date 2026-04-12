@@ -76,15 +76,13 @@ export class HomeComponent implements OnInit {
   }
 
   async addDeal() {
-    const dialogRef = this.dialog.open(AddDealDialog);
-    dialogRef
-      .afterClosed()
-      .subscribe((result: boolean) => this.handleResponse(result));
+    const dialogRef = this.dialog.open(AddDealDialog, {
+      panelClass: 'app-custom-dialog',
+    });
+    dialogRef.afterClosed().subscribe(() => this.refreshTable());
   }
 
-  private async handleResponse(result: boolean) {
-    if (result) {
-      await this.getDeals();
-    }
+  private async refreshTable() {
+    await this.getDeals();
   }
 }
