@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormFieldInputComponent } from '../shared/components/form-field-input/form-field-input.component';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -29,6 +30,7 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private auth: Auth,
+    private router: Router,
   ) {}
 
   async login() {
@@ -38,6 +40,7 @@ export class LoginComponent {
         this.formControlValue('email'),
         this.formControlValue('password'),
       );
+      this.router.navigateByUrl('/');
     } catch (e) {
       console.error(e);
     }

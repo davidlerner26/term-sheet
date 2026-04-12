@@ -3,6 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { FormFieldInputComponent } from '../shared/components/form-field-input/form-field-input.component';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -21,11 +22,13 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private auth: AuthService,
+    private router: Router,
   ) {}
 
   async register() {
     try {
       await this.auth.createUser(this.form.getRawValue());
+      this.router.navigateByUrl('/');
     } catch (e) {
       console.error(e);
     }
