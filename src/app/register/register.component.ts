@@ -1,20 +1,33 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { FormFieldInputComponent } from '../shared/components/form-field-input/form-field-input.component';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatButtonModule, FormFieldInputComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterComponent {
-  form = this.formBuilder.group({
-    email: [''],
-    password: [''],
+  form = this.fb.nonNullable.group({
+    name: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required],
   });
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthService,
+  ) {}
 
-  register() {}
+  async register() {
+    try {
+      await this.auth.createUser(this.form.getRawValue());
+    } catch (e) {
+      console.error(e);
+    }
+  }
 }

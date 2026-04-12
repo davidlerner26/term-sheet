@@ -5,6 +5,7 @@
     [placeholder]="placeholder"
     [name]="name"
     [formControlName]="controlName"
+    [type]="type"
   />
   <mat-error *ngIf="form.get(controlName)?.errors?.['required']"
     >{{ label }} is required</mat-error

@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormFieldInputComponent } from '../shared/components/form-field-input/form-field-input.component';
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login',
@@ -25,11 +26,21 @@ export class LoginComponent {
     password: ['', Validators.required],
   });
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private auth: Auth,
+  ) {}
 
-  login() {
-    console.log(this.formControlValue('email'));
-    console.log(this.formControlValue('password'));
+  async login() {
+    try {
+      await signInWithEmailAndPassword(
+        this.auth,
+        this.formControlValue('email'),
+        this.formControlValue('password'),
+      );
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   formControlValue(control: string) {

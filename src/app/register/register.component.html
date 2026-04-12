@@ -1,4 +1,29 @@
-<form (submit)="register()">
+<form [formGroup]="form" (submit)="register()">
+  <app-form-field-input
+    label="Name"
+    [form]="form"
+    controlName="name"
+    name="name"
+    placeholder="Enter name"
+  />
+
+  <app-form-field-input
+    label="Email"
+    [form]="form"
+    controlName="email"
+    name="email"
+    placeholder="Enter Email"
+  />
+
+  <app-form-field-input
+    label="Password"
+    type="password"
+    [form]="form"
+    controlName="password"
+    name="password"
+    placeholder="Enter Password"
+  />
+
   <button
     color="primary"
     type="submit"
