@@ -1,0 +1,11 @@
+<nav>
+  NAVBAR
+  <button
+    *ngIf="auth.authState$ | async"
+    class="primary"
+    matIconButton
+    (click)="auth.logout()"
+  >
+    <mat-icon>logout</mat-icon>
+  </button>
+</nav>

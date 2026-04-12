@@ -63,9 +63,7 @@ export class AuthService {
     console.log(userCred);
   }
 
-  async logout($event?: Event) {
-    $event?.preventDefault();
-
+  async logout() {
     await signOut(this.#auth);
 
     if (this.redirect) {
