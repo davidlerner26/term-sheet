@@ -21,7 +21,7 @@ import { FormFieldInputComponent } from '../shared/components/form-field-input/f
 })
 export class LoginComponent {
   form = this.formBuilder.group({
-    email: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
   });
 

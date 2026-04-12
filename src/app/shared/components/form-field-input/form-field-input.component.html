@@ -6,4 +6,15 @@
     [name]="name"
     [formControlName]="controlName"
   />
+  <mat-error *ngIf="form.get(controlName)?.errors?.['required']"
+    >{{ label }} is required</mat-error
+  >
+  <mat-error *ngIf="form.get(controlName)?.errors?.['email']"
+    >{{ label }} is invalid</mat-error
+  >
+  <mat-error *ngIf="form.get(controlName)?.errors?.['minlength']"
+    >{{ label }} must be
+    {{ form.get(controlName)?.errors?.["minlength"]?.requiredLength }}
+    long</mat-error
+  >
 </mat-form-field>
