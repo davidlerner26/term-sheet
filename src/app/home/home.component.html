@@ -1,4 +1,18 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<form>
+  <mat-form-field>
+    <mat-label>Deal</mat-label>
+    <input
+      matInput
+      placeholder="Search deals by name or price, please type at least 3 characters"
+      [(ngModel)]="search"
+      (ngModelChange)="onSearchChange($event)"
+      name="search"
+    />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</form>
+
+<table mat-table [dataSource]="filteredDataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="dealName">
     <th mat-header-cell *matHeaderCellDef>Deal Name</th>
     <td mat-cell *matCellDef="let element">{{ element.dealName }}</td>
