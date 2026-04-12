@@ -1,25 +1,25 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  <ng-container matColumnDef="position">
+  <ng-container matColumnDef="dealName">
     <th mat-header-cell *matHeaderCellDef>Deal Name</th>
     <td mat-cell *matCellDef="let element">{{ element.dealName }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="name">
+  <ng-container matColumnDef="price">
     <th mat-header-cell *matHeaderCellDef>Purchase Price</th>
     <td mat-cell *matCellDef="let element">{{ element.price | currency }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="weight">
+  <ng-container matColumnDef="address">
     <th mat-header-cell *matHeaderCellDef>Address</th>
     <td mat-cell *matCellDef="let element">{{ element.address }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="symbol">
+  <ng-container matColumnDef="noi">
     <th mat-header-cell *matHeaderCellDef>NOI (Net Operating Income)</th>
     <td mat-cell *matCellDef="let element">{{ element.noi | currency }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="weight">
+  <ng-container matColumnDef="capRate">
     <th mat-header-cell *matHeaderCellDef>Cap Rate</th>
     <td mat-cell *matCellDef="let element">{{ element.capRate }}</td>
   </ng-container>
