@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { FormFieldInputComponent } from '../shared/components/form-field-input/form-field-input.component';
-import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { LoadingService } from '../services/loading.service';
+import { FormFieldInputComponent } from '../../shared/components/form-field-input/form-field-input.component';
+import { AuthService } from '../../services/auth.service';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'app-register',

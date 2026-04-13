@@ -3,10 +3,10 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormFieldInputComponent } from '../shared/components/form-field-input/form-field-input.component';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { LoadingService } from '../services/loading.service';
+import { FormFieldInputComponent } from '../../shared/components/form-field-input/form-field-input.component';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'app-login',

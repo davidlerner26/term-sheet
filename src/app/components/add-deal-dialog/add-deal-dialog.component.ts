@@ -10,8 +10,8 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { debounceTime, Subscription } from 'rxjs';
-import { DealService } from '../services/deal.service';
-import { FormFieldInputComponent } from '../shared/components/form-field-input/form-field-input.component';
+import { DealService } from '../../services/deal.service';
+import { FormFieldInputComponent } from '../../shared/components/form-field-input/form-field-input.component';
 
 @Component({
   selector: 'app-add-deal-dialog',

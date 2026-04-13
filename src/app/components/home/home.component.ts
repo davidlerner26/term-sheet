@@ -7,10 +7,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
-import IDeal from '../models/deal.model';
-import { DealService } from '../services/deal.service';
+import IDeal from '../../models/deal.model';
+import { DealService } from '../../services/deal.service';
 import { AddDealDialog } from '../add-deal-dialog/add-deal-dialog.component';
-import { LoadingService } from '../services/loading.service';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'app-home',

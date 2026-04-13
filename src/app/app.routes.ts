@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AuthComponent } from './auth/auth.component';
+import { HomeComponent } from './components/home/home.component';
 import { AuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+import { AuthComponent } from './components/auth/auth.component';
 
 const redirectUnauthorizedToHome = () => redirectUnauthorizedTo('/auth');
 
