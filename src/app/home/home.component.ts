@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import IDeal from '../models/deal.model';
 import { DealService } from '../services/deal.service';
 import { AddDealDialog } from '../add-deal-dialog/add-deal-dialog.component';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'app-home',
@@ -42,6 +43,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private dealsService: DealService,
     public dialog: MatDialog,
+    private loadingService: LoadingService,
   ) {}
 
   async ngOnInit() {
@@ -49,12 +51,15 @@ export class HomeComponent implements OnInit {
   }
 
   private async getDeals() {
+    this.loadingService.loadingUserMerchantSubject.next(true);
     try {
       const deals = await this.dealsService.getDeals();
       this.initDataSource = deals;
       this.filteredDataSource = this.initDataSource;
+      this.loadingService.loadingUserMerchantSubject.next(false);
     } catch (error) {
       console.error(error);
+      this.loadingService.loadingUserMerchantSubject.next(false);
     }
   }
 

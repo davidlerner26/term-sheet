@@ -1,2 +1,5 @@
 <app-nav></app-nav>
-<router-outlet />
+
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<router-outlet [hidden]="isLoading" />

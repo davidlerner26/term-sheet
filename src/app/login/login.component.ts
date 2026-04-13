@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormFieldInputComponent } from '../shared/components/form-field-input/form-field-input.component';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'app-login',
@@ -31,18 +32,22 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     private auth: Auth,
     private router: Router,
+    private loadingService: LoadingService,
   ) {}
 
   async login() {
+    this.loadingService.loadingUserMerchantSubject.next(true);
     try {
       await signInWithEmailAndPassword(
         this.auth,
         this.formControlValue('email'),
         this.formControlValue('password'),
       );
+      this.loadingService.loadingUserMerchantSubject.next(false);
       this.router.navigateByUrl('/');
     } catch (e) {
       console.error(e);
+      this.loadingService.loadingUserMerchantSubject.next(false);
     }
   }
 
